@@ -6,12 +6,23 @@ window.onload = function(){
 	var convertString = function(str){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
-		// Vid fel, kasta ett undantag med ett meddelande till användaren. 
-	
+		// Vid fel, kasta ett undantag med ett meddelande till användaren.
+		var transform = "";
+		for (var i = 0; i < str.length; i++){
+			if (str.charCodeAt(i) >=97 && str.charCodeAt(i) <=122 || str.charCodeAt(i) >=228 && str.charCodeAt(i) <=246){
+				transform = transform+str.charAt(i).toUpperCase().replace(/a/gi, "#");
+				
+			}
+			else{
+				transform = transform+str.charAt(i).toLowerCase().replace(/a/gi, "#");
+			};
+			
+			
+		};
+		
+		return transform;
 
-
-
-
+		
 
 
 	};
