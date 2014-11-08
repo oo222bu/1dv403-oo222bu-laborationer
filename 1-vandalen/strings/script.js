@@ -7,6 +7,9 @@ window.onload = function(){
 		// Plats för förändring.		
 		// Returnera den konverterade strängen.
 		// Vid fel, kasta ett undantag med ett meddelande till användaren.
+	if (str.length > 0) {
+		
+
 		var transform = "";
 		for (var i = 0; i < str.length; i++){
 			if (str.charCodeAt(i) >=97 && str.charCodeAt(i) <=122 || str.charCodeAt(i) >=228 && str.charCodeAt(i) <=246){
@@ -19,8 +22,11 @@ window.onload = function(){
 			
 			
 		};
-		
 		return transform;
+	}else{
+		return "Skriv en textrad!";
+	};
+		
 
 		
 
