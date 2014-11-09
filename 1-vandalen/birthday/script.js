@@ -5,8 +5,13 @@ window.onload = function(){
 	
 	var birthday = function(date){
 		
-
-
+		var birthday = new Date(date);
+		var d2 = new Date();
+		var oneDay = 1000*60*60*24;
+		var diffDay = Math.abs((birthday.getTime()-d2.getTime())/(oneDay));
+		
+		console.log(diffDay);
+		
 			// Din kod här.
 
 
