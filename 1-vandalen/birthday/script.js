@@ -6,12 +6,12 @@ window.onload = function(){
 	var birthday = function(date){
 		
 		var birthday = new Date(date);
-		var d2 = new Date();
+		var today = new Date();
 		var oneDay = 1000*60*60*24;
-		var diffDay = Math.abs((birthday.getTime()-d2.getTime())/(oneDay));
-		
+		var diffDay = Math.abs((birthday.getTime()-today.getTime())/(oneDay));
 		console.log(diffDay);
-		
+		return Math.round(diffDay);
+	
 			// Din kod här.
 
 
@@ -33,7 +33,7 @@ window.onload = function(){
 		p.classList.remove( "error");
 
 		try {
-			var answer = birthday(input.value) // Läser in texten från textrutan och skickar till funktionen "convertString"
+			var answer = birthday(input.value); // Läser in texten från textrutan och skickar till funktionen "convertString"
 			var message;
 			switch (answer){
 				case 0: message = "Grattis på födelsedagen!";
