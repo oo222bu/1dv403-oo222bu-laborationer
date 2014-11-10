@@ -6,12 +6,24 @@ window.onload = function(){
 	var birthday = function(date){
 		
 		var birthday = new Date(date);
+		console.log(birthday);
 		var today = new Date();
 		var oneDay = 1000*60*60*24;
+		if (birthday <= today) {
+			
+		
+		birthday.setFullYear(today.getFullYear());
+		if (today > birthday ) {
+			birthday.setFullYear(today.getFullYear()+1);
+		}
 		var diffDay = Math.abs((birthday.getTime()-today.getTime())/(oneDay));
-		console.log(diffDay);
+		if (diffDay < 0) {
+			return "Ange giltigt datum!";
+		}
 		return Math.round(diffDay);
-	
+	}else{
+		alert("Ange giltigt datum");
+	}
 			// Din kod här.
 
 
