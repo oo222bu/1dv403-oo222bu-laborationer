@@ -9,8 +9,12 @@ window.onload = function(){
 		console.log(birthday);
 		var today = new Date();
 		var oneDay = 1000*60*60*24;
-		if (birthday <= today) {
-			
+		if (isNaN(birthday) ) {
+			throw {'message' : "Ej giltigt datum!"}
+		};
+		if (birthday >= today) {
+			throw {'message' : "Ange när du är född."}
+		};	
 		
 		birthday.setFullYear(today.getFullYear());
 		if (today > birthday ) {
@@ -21,9 +25,7 @@ window.onload = function(){
 			return "Ange giltigt datum!";
 		}
 		return Math.round(diffDay);
-	}else{
-		alert("Ange giltigt datum");
-	}
+	
 			// Din kod här.
 
 
