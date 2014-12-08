@@ -1,0 +1,13 @@
+body{
+    margin:0 auto;
+    background-color:white;
+    text-align:center;
+}
+#memoryBoard{
+    width:140px;
+    height:140px;
+    margin:0 auto;
+}
+#memoryBoard img{
+    margin:3px;
+}
