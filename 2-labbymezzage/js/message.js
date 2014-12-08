@@ -20,6 +20,19 @@ function Message(message, date){
 }
 
 Message.prototype.toString = function(){
+	return "Inlägget skapades"+"("+this.getDate()+")";
+
+}
+
+Message.prototype.getHTMLText = function() {
+	return this.getText().replace(/[\n\r]/g, "<br/>");
+}
+
+Message.prototype.getDateTime = function(){
+    var time = new Date();
+    var hour = time.getHours();
+    var min = time.getMinutes();
+    var sec = time.getSeconds();
     
-    
+    return hour + ":" + min + ":" + sec;
 }

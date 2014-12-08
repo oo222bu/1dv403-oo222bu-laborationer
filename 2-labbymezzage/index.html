@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <script src="message.js"></script>
-    <script src="engine.js"></script>
-    <title>labbymezzage</title>
+    <meta charset="UTF-8"/>
+    <script src="js/message.js"></script>
+    <script src="js/messageBoard.js"></script>
+    <title>Labbymezzage</title>
+    <link rel="stylesheet" href="main.css"/>
 </head>
 <body>
-    
+    <div id="container">
+    <div id="main">
+        <div id="logo">
+            <img src="pics/LabbyMezzage.jpg" alt="en loggo med texten LabbyMezzage">
+        </div>
+        <div id="messageboard"></div>
+    </div>
+    <div id=footer>
+        <p id="messagecount">Antal meddelanden: 0</p>
+        <textarea id="textarea" rows="6" cols="83"></textarea>
+        <input id="button" type="button" value="Skriv" />
+    </div>
+    </div>
 </body>
+</html>
