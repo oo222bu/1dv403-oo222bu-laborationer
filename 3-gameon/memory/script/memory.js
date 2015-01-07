@@ -63,15 +63,15 @@ var Memory = {
     },
     
     countPair:function(){
-       Memory.counter++;
-       console.log(Memory.counter);
-       if(Memory.counter === 8){
+        Memory.counter++;
+        if(Memory.counter === 8){
            alert("Grattis du vann!");
-       }
+           
+        }
     }
     
 };
 
 window.onload = function(){
     Memory.init();
-}
+};
