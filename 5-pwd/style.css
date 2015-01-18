@@ -40,9 +40,15 @@ body{
 	left:50px;
 	top:20px;
 	height:450px;
-	width:400px;
+	width:430px;
 	border:1px solid black;
 	background-color:silver;
+}
+
+#main{
+	overflow:auto;
+	height:405px;
+	
 }
 
 #top{
@@ -50,6 +56,27 @@ body{
 	height: 30px;
 	background:gray;
 	
+}
+
+#bot{
+	position:absolute;
+	bottom:0;
+	width: 100%;
+	height: 15px;
+	background:gray;
+}
+
+.loadIcon{
+	height:15px;
+}
+
+.loadP{
+	position:absolute;
+	left:20px;
+	top:0;
+	margin:0;
+	font-size:80%;
+	font-weight:lighter;
 }
 
 .topImg{
@@ -69,3 +96,27 @@ body{
 	float:right;
 	
 }
+
+.closeImg:hover{
+	transform: scale(1.1, 1.1);
+}
+
+.imageDiv{
+	float:left;
+	margin:5px;
+	border:1px solid black;
+	text-align:center;
+}
+
+.imageDiv:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.imageImg{
+	
+	vertical-align:middle;
+}
+

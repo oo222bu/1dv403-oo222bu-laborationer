@@ -2,6 +2,7 @@
 
 var Pwd = {
 	counter:0,
+	images:[],
 	
 	init:function(){
 		
@@ -41,6 +42,7 @@ var Pwd = {
 		Pwd.counter+=1;
 		
 		if(Pwd.counter > 1){
+			Pwd.closeWindow();
 			return false;
 		}
 		
@@ -74,6 +76,7 @@ var Pwd = {
 		top.appendChild(title);
 		top.appendChild(closeImg);
 		
+		Pwd.importImg();
 		closeImg.onclick=function(){
 			Pwd.closeWindow();
 		};
@@ -83,6 +86,95 @@ var Pwd = {
 		Pwd.counter=0;
 		document.getElementById("picsWindow").remove();
 		
+	},
+	
+	importImg:function(){
+		//Loading icon
+		var bot = document.getElementById("bot");
+		var loadDiv = document.createElement("div");
+		var loadIcon = document.createElement("img");
+		var loadP = document.createElement("p");
+		
+		loadP.setAttribute("class", "loadP");
+		loadP.innerHTML = "Loading";
+		loadDiv.setAttribute("id", "loadDiv");
+		loadIcon.setAttribute("src", "pics/loading.gif");
+		loadIcon.setAttribute("class", "loadIcon");
+		
+		bot.appendChild(loadDiv);
+		loadDiv.appendChild(loadIcon);
+		loadDiv.appendChild(loadP);
+		
+		var xhr = new XMLHttpRequest();
+		
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === 4){
+				if(xhr.status == 200){
+					console.log(xhr.responseText);
+					loadDiv.remove();
+					Pwd.images = JSON.parse(xhr.responseText);
+					Pwd.showImages();
+				}
+				else{
+					console.log("Läsfel, status: "+xhr.status);
+				}
+			}
+			
+		};
+		
+		xhr.open("Get", "http://homepage.lnu.se/staff/tstjo/labbyServer/imgviewer/", true)
+		
+		xhr.send(null);
+	},
+	
+	showImages:function(){
+		var main = document.getElementById("main");
+		
+		var height = 0;
+		var width = 0;
+		
+		for (var i = 0; i < Pwd.images.length; i+=1) {
+				
+
+				if(height < Pwd.images[i].thumbHeight){
+					height = Pwd.images[i].thumbHeight;
+				}
+
+				if(width < Pwd.images[i].thumbWidth){
+					width = Pwd.images[i].thumbWidth;
+				}
+			};
+			console.log(height);
+			for(var i = 0; i < Pwd.images.length; i+=1){
+				var imagesArray = Pwd.images[i];
+				var imageDiv = document.createElement("div");
+				var imageA = document.createElement("a");
+				var imageImg = document.createElement("img");
+				
+				imageDiv.setAttribute("class", "imageDiv");
+				imageA.setAttribute("href", "#");
+				imageA.setAttribute("class", "imageA");
+				imageImg.setAttribute("class", "imageImg");
+				imageImg.setAttribute("src", imagesArray.thumbURL);
+				
+				main.appendChild(imageDiv);
+				imageDiv.appendChild(imageA);
+				imageA.appendChild(imageImg);
+				
+				imageDiv.style.height = height+"px";
+				imageDiv.style.width = width+"px";
+				
+				Pwd.changeBackground(Pwd.images[i].URL, imageA);
+			};
+			
+	},
+	
+	changeBackground:function(image, click){
+		console.log(image);
+		console.log(click);
+		click.onclick = function(){
+			document.getElementById("desktop").style.background = "url("+image+")";	
+		};
 	},
 	
 };
