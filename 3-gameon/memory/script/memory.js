@@ -3,13 +3,16 @@ var Memory = {
     array: [],
     tries:0,
     counter:0,
+    row : 0,
+    col : 0,
+    
     
     init:function(){
         var memoryArr;
-        var row = 4;
-        var col = 4;
+        this.row = 2;
+        this.col = 2;
         
-        memoryArr = RandomGenerator.getPictureArray(row, col);
+        memoryArr = RandomGenerator.getPictureArray(this.row, this.col);
        
         Memory.setGame(memoryArr);
     },
@@ -37,6 +40,7 @@ var Memory = {
     turnImg:function(e){
             e.preventDefault();
             var click = this;
+            console.log(this);
             var number = click.getAttribute("class");
             var counter;
             if(Memory.array.length < 2){
@@ -64,7 +68,7 @@ var Memory = {
     
     countPair:function(){
         Memory.counter++;
-        if(Memory.counter === 8){
+        if(Memory.counter === (this.row + this.col)/2 ){
            alert("Grattis du vann!");
            
         }

@@ -33,7 +33,8 @@ var Pwd = {
 		toolBar.appendChild(imageViewerA);
 		imageViewerA.appendChild(imageViewerImg);
 		
-		imageViewerImg.onclick = function(){
+		imageViewerImg.onclick = function(e){
+			e.preventDefault();
 			Pwd.createImageWindow();
 		};
 	},

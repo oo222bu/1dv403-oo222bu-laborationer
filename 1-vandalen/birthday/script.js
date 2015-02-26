@@ -24,6 +24,7 @@ window.onload = function(){
 		if (diffDay < 0) {
 			return "Ange giltigt datum!";
 		}
+		console.log(diffDay);
 		return Math.round(diffDay);
 	
 			// Din kod här.
